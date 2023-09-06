@@ -33,9 +33,6 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install and Build 🔧
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
         run: |
           pnpm ci
           pnpm run build
