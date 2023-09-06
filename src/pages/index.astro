@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { IconDeviceLaptop } from "@tabler/icons-react";
+import Links from "../components/links.tsx";
+---
+
+<Layout title="alisson.dev">
+  <header class="pt-4 px-4 flex gap-2 flex-col">
+    <h1 class="text-2xl text-primary flex gap-2">
+      <IconDeviceLaptop size={32} className="icon-rotate" />
+      <span>Hello there, I'm Alisson</span>
+    </h1>
+    <h2 class="text-xl text-secondary">
+      Human, brazilian and cancer survivor.
+    </h2>
+  </header>
+
+  <main class="p-4 flex flex-col gap-2">
+    <section>
+      <p class="text-lg">
+        I'm a software developer with a passion for life, currently working as a
+        tech lead at <a
+          href="https://matrixcargo.com.br"
+          target="_blank"
+          class="text-primary">matrixcargo</a
+        >.
+      </p>
+    </section>
+    <section class="flex flex-col gap-2">
+      <p class="text-lg">
+        I have a few places where you can see what I do and reach out:
+      </p>
+      <Links />
+    </section>
+  </main>
+</Layout>
