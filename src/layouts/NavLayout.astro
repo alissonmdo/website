@@ -1,0 +1,61 @@
+---
+import IconSelector, {
+  type IconSelectorProps,
+} from "../components/icon-selector";
+import Layout from "./Layout.astro";
+interface Props {
+  title: string;
+}
+
+const links: { name: string; url: string; icon: IconSelectorProps["name"] }[] =
+  [
+    {
+      name: "Home",
+      url: "/",
+      icon: "home",
+    },
+    {
+      name: "Playlists",
+      url: "/playlists",
+      icon: "playlists",
+    },
+    {
+      name: "Games",
+      url: "/games",
+      icon: "games",
+    },
+    {
+      name: "Projects",
+      url: "/projects",
+      icon: "projects",
+    },
+    {
+      name: "Curriculum",
+      url: "/curriculum",
+      icon: "curriculum",
+    },
+  ];
+---
+
+<Layout title={Astro.props.title}>
+  <nav class="flex flex-row gap-4 mb-4">
+    {
+      links.map(({ name, url, icon }) => (
+        <a
+          href={url}
+          class={`flex flex-row gap-2 ${icon === "home" ? "text-primary" : ""}`}
+        >
+          <span
+            transition:name={icon}
+            class="tooltip tooltip-bottom w-fit"
+            data-tip={name}
+          >
+            <IconSelector name={icon} size={30} />
+          </span>
+          {icon === "home" ? <span class="text-lg">Alisson</span> : null}
+        </a>
+      ))
+    }
+  </nav>
+  <slot />
+</Layout>

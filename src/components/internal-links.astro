@@ -1,0 +1,51 @@
+---
+import type { IconSelectorProps } from "./icon-selector";
+import IconSelector from "./icon-selector";
+
+const links = [
+  {
+    name: "Playlists",
+    url: "/playlists",
+    icon: "playlists",
+  },
+  {
+    name: "Games",
+    url: "/games",
+    icon: "games",
+  },
+  {
+    name: "Projects",
+    url: "/projects",
+    icon: "projects",
+  },
+  {
+    name: "Curriculum",
+    url: "/curriculum",
+    icon: "curriculum",
+  },
+] satisfies {
+  name: string;
+  url: string;
+  icon: IconSelectorProps["name"];
+}[];
+---
+
+<ul class="flex flex-col text-lg items-start">
+  {
+    links.map((link) => (
+      <li>
+        <a
+          href={link.url}
+          rel="noopener noreferrer"
+          class="flex gap-2 hover:text-accent"
+        >
+          {">"}{" "}
+          <span transition:name={link.icon}>
+            <IconSelector name={link.icon} size={24} />
+          </span>
+          <span>{link.name}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
